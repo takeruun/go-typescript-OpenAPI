@@ -1,0 +1,33 @@
+openapi: 3.0.3
+info:
+  version: 1.0.0
+  title: go-typescript-OpenAPI
+  description: praction api schema
+servers:
+  - url: http://localhost
+paths:
+  /hello:
+    get:
+      tags:
+        - hello
+      description: hello api
+      operationId: hello
+      responses:
+        200:
+          description: reponse hello api
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/helloResponse'
+components:
+  schemas:
+    message:
+      type: string
+      example: example
+    helloResponse:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          $ref: '#/components/schemas/message'
