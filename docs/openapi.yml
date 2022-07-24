@@ -1,33 +1,103 @@
-openapi: 3.0.3
+openapi: "3.0.3"
 info:
   version: 1.0.0
   title: go-typescript-OpenAPI
   description: praction api schema
 servers:
-  - url: http://localhost
+  - url: http://localhost:3000
 paths:
   /hello:
     get:
       tags:
         - hello
+      summary: return message
       description: hello api
       operationId: hello
+      parameters:
+        - name: tags
+          in: query
+          description: tags to filter by
+          required: true
+          style: form
+          schema:
+            type: array
+            items:
+              type: string
+        - name: limit
+          in: query
+          description: maximum number of results to return
+          required: true
+          schema:
+            type: integer
+            format: int32
       responses:
         200:
           description: reponse hello api
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/helloResponse'
+                $ref: '#/components/schemas/HelloResponse'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /goodMorning:
+    get:
+      tags:
+        - goodMorning
+      summary: return message
+      description: goodMorning api
+      operationId: goodMorning
+      responses:
+        200:
+          description: reponse goodMorning api
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoodMorningResponse'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
 components:
   schemas:
     message:
       type: string
       example: example
-    helloResponse:
+    Hello:
       type: object
       required:
         - message
       properties:
         message:
           $ref: '#/components/schemas/message'
+    GoodMorning:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          $ref: '#/components/schemas/message'
+
+    HelloResponse:
+      allOf:
+        - $ref: '#/components/schemas/Hello'
+    GoodMorningResponse:
+      allOf:
+        - $ref: '#/components/schemas/GoodMorning'
+    Error:
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+          description: Error code
+        message:
+          type: string
+          description: Error message
