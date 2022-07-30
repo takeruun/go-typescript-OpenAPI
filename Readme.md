@@ -69,18 +69,3 @@ specのみ使用なら良さそう。
 ```
 e.Use(echomiddleware.OapiRequestValidator(swagger))
 ```
-
-
-### memo
-感想
-バックエンドの使用はなしかな。
-・userコントロール・orderコントロールという風に一定の括りでまとめるのが難しいので、管理が大変。
-・同じファイルになるためパフォーマンスが気になる（未検証）
-・tagで出力を制御できるがパッケージを変える必要がある
-  → 同じ型がtag毎で定義生成されてしまう。
-
-specのみ使用なら良さそう。
-リクエストパラメータのバリデーションチェック良い、使用方法もそんなに難しくない。
-```
-e.Use(echomiddleware.OapiRequestValidator(swagger))
-```
