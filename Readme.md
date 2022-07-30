@@ -16,7 +16,7 @@ TypeScript のコード生成ツール（openapitools/openapi-generator-cli）
 ## 使い方
 1. OpenAPIスキーマを定義
 
-2. `make generate-openapi` を実行
+2. `make generate-openapi` を実行 (docker コンテナ内)
 
     types, server, spec の生成
   
@@ -36,7 +36,7 @@ TypeScript のコード生成ツール（openapitools/openapi-generator-cli）
 ```
 docker run --rm -v ${PWD}:/app openapitools/openapi-generator-cli:v6.0.0 generate -i /app/docs/openapi.yml -g typescript-fetch -o app/front/src/@codegen/api -c /app/docs/front_generate_config.yml
 ```
-プロジェクトロートディレクトで実行。
+プロジェクトロートディレクトで実行。(docker コンテナ外)
 
 ### memo
 感想
