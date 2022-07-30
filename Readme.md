@@ -1,7 +1,7 @@
 # 概要
 Go のコード生成ツール（oapi-codegen）
 
-TypeScript のコード生成ツール（penapitools/openapi-generator-cli）
+TypeScript のコード生成ツール（openapitools/openapi-generator-cli）
 
 の検証
 
@@ -57,7 +57,7 @@ docker run --rm -v ${PWD}:/app openapitools/openapi-generator-cli:v6.0.0 generat
 
 ### memo
 感想
-バックエンドの使用はなしかな。
+oapi-codegen の使用はなしかな。
 
 ・userコントロール・orderコントロールという風に一定の括りでまとめるのが難しいので、管理が大変。
 
@@ -72,3 +72,7 @@ specのみ使用なら良さそう。
 ```
 e.Use(echomiddleware.OapiRequestValidator(swagger))
 ```
+
+openapitools/openapi-generator-cli はあり
+
+・FetchAPI クラスを作成してくれて、使用時は呼び出すだけ
