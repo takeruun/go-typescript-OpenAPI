@@ -1,0 +1,12 @@
+.openapi-generator-ignore
+apis/GoodMorningApi.ts
+apis/HelloApi.ts
+apis/index.ts
+index.ts
+models/GoodMorning.ts
+models/GoodMorningResponse.ts
+models/Hello.ts
+models/HelloResponse.ts
+models/ModelError.ts
+models/index.ts
+runtime.ts

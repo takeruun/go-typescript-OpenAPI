@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
+import { GoodMorningApi } from '@codegen/api'
 
 function App() {
+  const [message, setMessage] = useState('');
+
+  const clickGoodMorning = async () => {
+    const res = await new GoodMorningApi().goodMorning();
+    setMessage(res.message);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -13,8 +21,9 @@ function App() {
             <button>Hello</button>
           </div>
           <div>
-            <button>GoodMorning</button>
+            <button onClick={clickGoodMorning}>GoodMorning</button>
           </div>
+          <div>Message: {message}</div>
         </div>
       </div>
     </div>
