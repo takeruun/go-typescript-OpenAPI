@@ -5,30 +5,13 @@ TypeScript のコード生成ツール（openapitools/openapi-generator-cli）
 
 の検証
 
-## 使い方 (Go)
-1. OpenAPIスキーマを定義
-
-2. `make generate-openapi` を実行
-types, server, spec の生成
-
-types: データ型の定義（OpenAPIで使用されるデータ型・APIレスポンス型など）
-server: サーバー設定（ルーティン・APIリクエストの受け口など）
-spec: リクエストのバリデーションチェック（リクエストパラメータが正常かどうかなど）
-
-3. 実行関数インターフェース追記
-`repository.go` に Api Response型 を返すような関数を定義
-
-4. 実行関数実装
-実行関数インターフェースに定義されてある、関数の実装
-
-# 概要
-Go のコード生成ツール（oapi-codegen）の検証
-
 # 環境
 - go 1.18.4
 - oapi-codegen 1.10.0
 - air
 - echo
+- react 18
+- typescript
 
 ## 使い方
 1. OpenAPIスキーマを定義
