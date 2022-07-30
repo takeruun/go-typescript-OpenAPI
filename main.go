@@ -4,6 +4,7 @@ import (
 	api "app/api"
 	controller "app/controller"
 	"fmt"
+	"net/http"
 	"os"
 
 	echomiddleware "github.com/deepmap/oapi-codegen/pkg/middleware"
@@ -23,6 +24,10 @@ func main() {
 	e := echo.New()
 
 	// Middleware
+	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
+		AllowOrigins: []string{"http://localhost:3001"},
+		AllowMethods: []string{http.MethodGet, http.MethodPut, http.MethodPost, http.MethodDelete, http.MethodOptions},
+	}))
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
 	e.Use(echomiddleware.OapiRequestValidator(swagger))
