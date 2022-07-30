@@ -1,7 +1,8 @@
 # 概要
-Go のコード生成ツール（oapi-codegen）の検証
+Go のコード生成ツール（oapi-codegen）
+TypeScript のコード生成ツール（penapitools/openapi-generator-cli）
 
-## 使い方
+## 使い方 (Go)
 1. OpenAPIスキーマを定義
 
 2. `make generate-openapi` を実行
@@ -17,6 +18,11 @@ spec: リクエストのバリデーションチェック（リクエストパ�
 4. 実行関数実装
 実行関数インターフェースに定義されてある、関数の実装
 
+## (TypeScript)
+```
+docker run --rm -v ${PWD}:/app openapitools/openapi-generator-cli:v6.0.0 generate -i /app/docs/openapi.yml -g typescript-fetch -o app/front/src/@codegen/api -c /app/docs/front_generate_config.yml
+```
+プロジェクトロートディレクトで実行。
 
 ### memo
 感想
