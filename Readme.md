@@ -40,6 +40,7 @@ docker run --rm -v ${PWD}:/app openapitools/openapi-generator-cli:v6.0.0 generat
 
 ### memo
 感想
+
 ・userコントロール・orderコントロールという風に一定の括りでまとめるのが難しいので、管理が大変。
 
 ・tagで出力を制御できるがパッケージを変える必要がある
