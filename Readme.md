@@ -40,11 +40,7 @@ docker run --rm -v ${PWD}:/app openapitools/openapi-generator-cli:v6.0.0 generat
 
 ### memo
 感想
-oapi-codegen の使用はなしかな。
-
 ・userコントロール・orderコントロールという風に一定の括りでまとめるのが難しいので、管理が大変。
-
-・同じファイルになるためパフォーマンスが気になる（未検証）
 
 ・tagで出力を制御できるがパッケージを変える必要がある
   → 同じ型がtag毎で定義生成されてしまう。
